@@ -9,6 +9,8 @@ import NotificationPanel from '@/components/NotificationPanel';
 import AddDeviceModal from '@/components/AddDeviceModal';
 import MaintenanceModal from '@/components/MaintenanceModal';
 import { useToast } from '@/hooks/use-toast';
+import Profile from '@/components/Profile';
+import NoiseMonitoring from '@/components/NoiseMonitoring';
 
 // Mock data for demonstration
 const mockDevices = [
@@ -226,6 +228,16 @@ const Index = () => {
       </header>
 
       <main className="max-w-md mx-auto p-4 pb-20">
+        {/* Profile Information */}
+        <div className="mb-6">
+          <Profile />
+        </div>
+
+        {/* Live Noise Monitoring */}
+        <div className="mb-6">
+          <NoiseMonitoring />
+        </div>
+
         {/* Status Chart */}
         <Card className="mb-6">
           <CardHeader>
