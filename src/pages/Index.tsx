@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -196,7 +195,7 @@ const Index = () => {
         <div className="flex items-center justify-between max-w-md mx-auto">
           <div className="flex items-center space-x-2">
             <Home className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">MachineMate</h1>
+            <h1 className="text-xl font-bold text-foreground">Allert AI</h1>
           </div>
           
           <div className="flex items-center space-x-2">
