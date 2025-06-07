@@ -195,7 +195,7 @@ const Index = () => {
         <div className="flex items-center justify-between max-w-md mx-auto">
           <div className="flex items-center space-x-2">
             <Home className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">Allert AI</h1>
+            <h1 className="text-xl font-bold text-foreground">allert.ai</h1>
           </div>
           
           <div className="flex items-center space-x-2">
