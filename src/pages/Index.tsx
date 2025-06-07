@@ -63,13 +63,13 @@ const mockDevices = [
 ];
 
 const mockChartData = [
-  { time: '00:00', score: 15 },
-  { time: '04:00', score: 22 },
-  { time: '08:00', score: 18 },
-  { time: '12:00', score: 45 },
-  { time: '16:00', score: 32 },
-  { time: '20:00', score: 28 },
-  { time: '24:00', score: 25 }
+  { time: '00:00', normal: 3, pending: 1, failure: 0 },
+  { time: '04:00', normal: 4, pending: 0, failure: 0 },
+  { time: '08:00', normal: 3, pending: 0, failure: 1 },
+  { time: '12:00', normal: 2, pending: 1, failure: 1 },
+  { time: '16:00', normal: 3, pending: 1, failure: 0 },
+  { time: '20:00', normal: 2, pending: 2, failure: 0 },
+  { time: '24:00', normal: 2, pending: 1, failure: 1 }
 ];
 
 const mockNotifications = [
@@ -226,39 +226,10 @@ const Index = () => {
       </header>
 
       <main className="max-w-md mx-auto p-4 pb-20">
-        {/* Status Overview */}
+        {/* Status Chart */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-lg">System Overview</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <div className="text-2xl font-bold text-green-600">
-                  {devices.filter(d => d.status === 'Normal').length}
-                </div>
-                <div className="text-sm text-muted-foreground">Normal</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-amber-600">
-                  {devices.filter(d => d.status === 'Alert').length}
-                </div>
-                <div className="text-sm text-muted-foreground">Alerts</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-red-600">
-                  {devices.filter(d => d.status === 'Fault').length}
-                </div>
-                <div className="text-sm text-muted-foreground">Faults</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Anomaly Score Chart */}
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle className="text-lg">24-Hour Anomaly Trends</CardTitle>
+            <CardTitle className="text-lg">24-Hour Status Overview</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-48">
@@ -266,14 +237,31 @@ const Index = () => {
                 <LineChart data={mockChartData}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="time" />
-                  <YAxis domain={[0, 100]} />
+                  <YAxis domain={[0, 4]} />
                   <Tooltip />
                   <Line 
                     type="monotone" 
-                    dataKey="score" 
-                    stroke="hsl(var(--primary))" 
+                    dataKey="normal" 
+                    stroke="#22c55e" 
                     strokeWidth={2}
-                    dot={{ fill: 'hsl(var(--primary))' }}
+                    dot={{ fill: '#22c55e' }}
+                    name="Normal"
+                  />
+                  <Line 
+                    type="monotone" 
+                    dataKey="pending" 
+                    stroke="#f59e0b" 
+                    strokeWidth={2}
+                    dot={{ fill: '#f59e0b' }}
+                    name="Pending"
+                  />
+                  <Line 
+                    type="monotone" 
+                    dataKey="failure" 
+                    stroke="#ef4444" 
+                    strokeWidth={2}
+                    dot={{ fill: '#ef4444' }}
+                    name="Failure"
                   />
                 </LineChart>
               </ResponsiveContainer>
