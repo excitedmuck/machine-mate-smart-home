@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Bell, Settings, Home, Thermometer, Plus, Calendar, BellOff, User } from 'lucide-react';
+import { Bell, Settings, Thermometer, Plus, Calendar, BellOff, User } from 'lucide-react';
 import DeviceCard from '@/components/DeviceCard';
 import NotificationPanel from '@/components/NotificationPanel';
 import AddDeviceModal from '@/components/AddDeviceModal';
@@ -197,7 +197,11 @@ const Index = () => {
       <header className="bg-card border-b border-border p-4 sticky top-0 z-50">
         <div className="flex items-center justify-between max-w-md mx-auto">
           <div className="flex items-center space-x-2">
-            <Home className="h-6 w-6 text-primary" />
+            <img 
+              src="/lovable-uploads/84a4ee87-7fd3-4f5a-be9a-34f36b2b164b.png" 
+              alt="allert.ai logo" 
+              className="h-8 w-8"
+            />
             <h1 className="text-xl font-bold text-foreground">allert.ai</h1>
           </div>
           
