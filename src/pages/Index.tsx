@@ -3,13 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Bell, Settings, Home, Thermometer, Plus, Calendar, BellOff } from 'lucide-react';
+import { Bell, Settings, Home, Thermometer, Plus, Calendar, BellOff, User } from 'lucide-react';
 import DeviceCard from '@/components/DeviceCard';
 import NotificationPanel from '@/components/NotificationPanel';
 import AddDeviceModal from '@/components/AddDeviceModal';
 import MaintenanceModal from '@/components/MaintenanceModal';
+import ProfileModal from '@/components/ProfileModal';
 import { useToast } from '@/hooks/use-toast';
-import Profile from '@/components/Profile';
 import NoiseMonitoring from '@/components/NoiseMonitoring';
 
 // Mock data for demonstration
@@ -107,6 +107,7 @@ const Index = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showAddDevice, setShowAddDevice] = useState(false);
   const [showMaintenance, setShowMaintenance] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const [selectedDevice, setSelectedDevice] = useState(null);
   const [isOnline, setIsOnline] = useState(true);
   const { toast } = useToast();
@@ -220,6 +221,14 @@ const Index = () => {
               )}
             </Button>
             
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => setShowProfile(true)}
+            >
+              <User className="h-5 w-5" />
+            </Button>
+            
             <Button variant="ghost" size="sm">
               <Settings className="h-5 w-5" />
             </Button>
@@ -228,9 +237,10 @@ const Index = () => {
       </header>
 
       <main className="max-w-md mx-auto p-4 pb-20">
-        {/* Profile Information */}
-        <div className="mb-6">
-          <Profile />
+        {/* Personalized Greeting */}
+        <div className="mb-6 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-4 border">
+          <h2 className="text-xl font-semibold text-foreground mb-1">Hi John! 👋</h2>
+          <p className="text-sm text-muted-foreground">Welcome back to your monitoring dashboard</p>
         </div>
 
         {/* Live Noise Monitoring */}
@@ -354,6 +364,11 @@ const Index = () => {
         isOpen={showMaintenance}
         onClose={() => setShowMaintenance(false)}
         device={selectedDevice}
+      />
+
+      <ProfileModal
+        isOpen={showProfile}
+        onClose={() => setShowProfile(false)}
       />
     </div>
   );
