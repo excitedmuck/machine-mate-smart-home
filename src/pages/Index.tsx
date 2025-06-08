@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -199,10 +200,10 @@ const Index = () => {
           <div className="flex items-center space-x-2">
             <img 
               src="/lovable-uploads/84a4ee87-7fd3-4f5a-be9a-34f36b2b164b.png" 
-              alt="allert.ai logo" 
+              alt="Allert.ai logo" 
               className="h-8 w-8"
             />
-            <h1 className="text-xl font-bold text-foreground">allert.ai</h1>
+            <h1 className="text-xl font-bold text-foreground">Allert.ai</h1>
           </div>
           
           <div className="flex items-center space-x-2">
